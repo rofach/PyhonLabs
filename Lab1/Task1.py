@@ -12,7 +12,9 @@ def execute_formula(formula_function, x):
         print(f"Непередбачена помилка: {e}")
 
 def formula_1(x):
-    sin_x = math.sin(math.radians(x))
+    x = math.radians(x)
+    print(f"Проміжне значення x в радіанах: {x:.6f}")
+    sin_x = math.sin(x)
     log_arg = sin_x + 0.5
     
     if log_arg <= 0:

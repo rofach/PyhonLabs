@@ -20,16 +20,15 @@ def main():
         except ValueError:
             continue
 
-        yes_variants = possible_numbers.intersection(question_set)
-        
-        no_variants = possible_numbers.difference(question_set)
+        yes_set = possible_numbers.intersection(question_set)
+        no_set = possible_numbers.difference(question_set)
 
-        if len(yes_variants) > len(no_variants):
+        if len(yes_set) > len(no_set):
             print("Так")
-            possible_numbers = yes_variants
+            possible_numbers = yes_set
         else:
             print("Hi")
-            possible_numbers = no_variants
+            possible_numbers = no_set
 
     result = sorted(list(possible_numbers))
     print(*(result))

@@ -5,6 +5,8 @@ def remove_element_loop(lst, n):
             new_list.append(x)
     return new_list
 
+    # return [x for x in lst if x != n]
+
 def main():
     try:
         user_input = input("Введіть елементи списку: ")
