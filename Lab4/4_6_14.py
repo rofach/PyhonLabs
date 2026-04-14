@@ -3,7 +3,10 @@ import numpy as np
 def create_matrix(n):
     matrix = np.zeros((7, 7), dtype=int)
     i, j = np.indices((7, 7))
-    matrix[np.abs(i - 3) + np.abs(j - 3) == 3] = n
+    
+    diamond = (np.abs(i - 3) / 3) + (np.abs(j - 3) / 3) == 1
+    
+    matrix[diamond] = n
     return matrix
 
 def main():
