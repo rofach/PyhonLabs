@@ -4,17 +4,17 @@ import matplotlib.pyplot as plt
 def calc(x):
     y = np.full_like(x, np.nan, dtype=float)
     
-    with np.errstate(invalid='ignore', divide='ignore'):
-        mask1 = (x > -1) & (x < 3)
-        y[mask1] = np.sqrt(np.log(x[mask1]) / np.tan(x[mask1]**2))
+    np.errstate(invalid='ignore', divide='ignore')
+    cond1 = (x > -1) & (x < 3)
+    y[cond1] = np.sqrt(np.log(x[cond1]) / np.tan(x[cond1]**2))
         
-        mask2 = x > 4
-        y[mask2] = np.cos(np.log(x[mask2] - 5)) / (2 * np.sin(x[mask2]) - 1)
+    cond2 = x > 4
+    y[cond2] = np.cos(np.log(x[cond2] - 5)) / (2 * np.sin(x[cond2]) - 1)
         
     return y
 
 def main():
-    x = np.linspace(-1, 15, 00)
+    x = np.linspace(-15, 15, 2000)
     
     y = calc(x)
     
